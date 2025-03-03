@@ -1,0 +1,38 @@
+/Users/pro/Projects/Learning/С# devkit/HelloWorld/bin/Debug/net9.0/HelloWorld
+/Users/pro/Projects/Learning/С# devkit/HelloWorld/bin/Debug/net9.0/HelloWorld.deps.json
+/Users/pro/Projects/Learning/С# devkit/HelloWorld/bin/Debug/net9.0/HelloWorld.runtimeconfig.json
+/Users/pro/Projects/Learning/С# devkit/HelloWorld/bin/Debug/net9.0/HelloWorld.dll
+/Users/pro/Projects/Learning/С# devkit/HelloWorld/bin/Debug/net9.0/HelloWorld.pdb
+/Users/pro/Projects/Learning/С# devkit/HelloWorld/obj/Debug/net9.0/HelloWorld.GeneratedMSBuildEditorConfig.editorconfig
+/Users/pro/Projects/Learning/С# devkit/HelloWorld/obj/Debug/net9.0/HelloWorld.AssemblyInfoInputs.cache
+/Users/pro/Projects/Learning/С# devkit/HelloWorld/obj/Debug/net9.0/HelloWorld.AssemblyInfo.cs
+/Users/pro/Projects/Learning/С# devkit/HelloWorld/obj/Debug/net9.0/HelloWorld.csproj.CoreCompileInputs.cache
+/Users/pro/Projects/Learning/С# devkit/HelloWorld/obj/Debug/net9.0/HelloWorld.sourcelink.json
+/Users/pro/Projects/Learning/С# devkit/HelloWorld/obj/Debug/net9.0/HelloWorld.dll
+/Users/pro/Projects/Learning/С# devkit/HelloWorld/obj/Debug/net9.0/refint/HelloWorld.dll
+/Users/pro/Projects/Learning/С# devkit/HelloWorld/obj/Debug/net9.0/HelloWorld.pdb
+/Users/pro/Projects/Learning/С# devkit/HelloWorld/obj/Debug/net9.0/HelloWorld.genruntimeconfig.cache
+/Users/pro/Projects/Learning/С# devkit/HelloWorld/obj/Debug/net9.0/ref/HelloWorld.dll
+/Users/pro/Projects/Learning/C#devkit/HelloWorld/obj/Debug/net9.0/HelloWorld.GeneratedMSBuildEditorConfig.editorconfig
+/Users/pro/Projects/Learning/C#devkit/HelloWorld/obj/Debug/net9.0/HelloWorld.AssemblyInfoInputs.cache
+/Users/pro/Projects/Learning/C#devkit/HelloWorld/obj/Debug/net9.0/HelloWorld.AssemblyInfo.cs
+/Users/pro/Projects/Learning/C#devkit/HelloWorld/obj/Debug/net9.0/HelloWorld.csproj.CoreCompileInputs.cache
+/Users/pro/Projects/Learning/C#devkit/HelloWorld/obj/Debug/net9.0/HelloWorld.sourcelink.json
+/Users/pro/Projects/Learning/C#devkit/HelloWorld/obj/Debug/net9.0/HelloWorld.dll
+/Users/pro/Projects/Learning/C#devkit/HelloWorld/obj/Debug/net9.0/refint/HelloWorld.dll
+/Users/pro/Projects/Learning/C#devkit/HelloWorld/obj/Debug/net9.0/HelloWorld.pdb
+/Users/pro/Projects/Learning/C# devkit/HelloWorld/bin/Debug/net9.0/HelloWorld
+/Users/pro/Projects/Learning/C# devkit/HelloWorld/bin/Debug/net9.0/HelloWorld.deps.json
+/Users/pro/Projects/Learning/C# devkit/HelloWorld/bin/Debug/net9.0/HelloWorld.runtimeconfig.json
+/Users/pro/Projects/Learning/C# devkit/HelloWorld/bin/Debug/net9.0/HelloWorld.dll
+/Users/pro/Projects/Learning/C# devkit/HelloWorld/bin/Debug/net9.0/HelloWorld.pdb
+/Users/pro/Projects/Learning/C# devkit/HelloWorld/obj/Debug/net9.0/HelloWorld.GeneratedMSBuildEditorConfig.editorconfig
+/Users/pro/Projects/Learning/C# devkit/HelloWorld/obj/Debug/net9.0/HelloWorld.AssemblyInfoInputs.cache
+/Users/pro/Projects/Learning/C# devkit/HelloWorld/obj/Debug/net9.0/HelloWorld.AssemblyInfo.cs
+/Users/pro/Projects/Learning/C# devkit/HelloWorld/obj/Debug/net9.0/HelloWorld.csproj.CoreCompileInputs.cache
+/Users/pro/Projects/Learning/C# devkit/HelloWorld/obj/Debug/net9.0/HelloWorld.sourcelink.json
+/Users/pro/Projects/Learning/C# devkit/HelloWorld/obj/Debug/net9.0/HelloWorld.dll
+/Users/pro/Projects/Learning/C# devkit/HelloWorld/obj/Debug/net9.0/refint/HelloWorld.dll
+/Users/pro/Projects/Learning/C# devkit/HelloWorld/obj/Debug/net9.0/HelloWorld.pdb
+/Users/pro/Projects/Learning/C# devkit/HelloWorld/obj/Debug/net9.0/HelloWorld.genruntimeconfig.cache
+/Users/pro/Projects/Learning/C# devkit/HelloWorld/obj/Debug/net9.0/ref/HelloWorld.dll

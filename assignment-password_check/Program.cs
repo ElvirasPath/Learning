@@ -12,9 +12,10 @@
 
             if (newPassword?.Length < 5)
             {
-                Console.WriteLine("❌Weak password, please enter at least 5 characters");
+                Console.WriteLine("❌ Weak password, please enter at least 5 characters");
                 return;
             }
+
             foreach (char character in newPassword)
             {
                 if (specialChars.Contains(character)) hasSpecial = true;
@@ -30,7 +31,7 @@
             }
             else
             {
-                Console.WriteLine("❌Password must contain at least one uppercase and lower letter, together with at lest one special character");
+                Console.WriteLine("❌ Password must contain at least one uppercase and lower letter, together with at lest one special character");
             }
         } while (!(hasSpecial && hasUpper && hasLower));
     } 

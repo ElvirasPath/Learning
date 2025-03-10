@@ -1,49 +1,5 @@
-﻿// class Person
-// {
-//     string Name { get; set; }
-// }
-
-// ArrayList people = new ArrayList();
-
-// people.Add(new Person());
-// people.Add(new Person());
-// people.Add(4);
-// people.Add("string");
-
-
-// var people = new List<Person>() // Generics
-// {
-//     new Person(),
-//     new Person(),
-// }
-
-// var peopleDictionary = new Dictionary<string, Person>();
-
-// people.Add(new Person());
-
-// people.Add(5);
-
-// // base types
-// // object, int, string, float/double, bool, char
-
-
-// string[] strings = new string[] { "Orange", "Banana", "Apple" };
-
-// strings[0]
-// strings[1]
-// strings[2]
-
-
-// string fruit = "Orange";
-// fruit[6]
-
-// fruit[0] = 'O';
-
-// char[] fruit = new char[] { 'O', 'r', 'a', 'n', 'g', 'e' };
-
-class Program
+﻿class Program
 {
-
     static void Main(string[] args)
     {
 
@@ -53,13 +9,11 @@ class Program
         Console.Write("Create your password: ");
         string? newPassword = Console.ReadLine();
 
-
         if (newPassword?.Length < 5)
         {
             Console.WriteLine("❌Weak password, please enter at least 5 characters");
             return;
         }
-
 
         for (int i = 0; i < newPassword?.Length; i++)
 
@@ -85,26 +39,5 @@ class Program
 
 
     }
-
-    // class Car
-    // {
-
-    // }
-
-    // class Garage
-    // {
-    //     List<Car> Cars { get; set; }
-    // }
-
-
-    // Garage[0] 
-
-
-
-
-
-
-
-
 
 }

@@ -40,6 +40,6 @@
             {
                 Console.WriteLine("❌Password must contain at least one uppercase and lower letter, together with at lest one special character");
             }
-        } while (hasSpecial && hasUpper && hasLower);
+        } while (!(hasSpecial && hasUpper && hasLower));
     } 
 }

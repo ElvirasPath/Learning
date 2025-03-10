@@ -21,15 +21,7 @@
                 if (char.IsLower(character)) hasLower = true;
                 if (char.IsUpper(character)) hasUpper = true;
             }
-            // for (int i = 0; i < newPassword?.Length; i++)
-            // {
-            //     char character = newPassword[i]; // Get each character at index i 
-
-            //     if (specialChars.Contains(newPassword[i])) hasSpecial = true;
-            //     if (char.IsLower(character)) hasLower = true;
-            //     if (char.IsUpper(character)) hasUpper = true;
-            // }
-
+        
             //Check if all conditions are met 
             if (hasSpecial && hasUpper && hasLower)
             {

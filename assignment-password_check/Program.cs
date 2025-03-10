@@ -2,7 +2,6 @@
 {
     static void Main(string[] args)
     {
-
         string? specialChars = "!?.@:";
         bool hasUpper = false, hasLower = false, hasSpecial = false; //Initially, we don’t know if the password has an uppercase letter, lowercase letter, or special character.
 
@@ -16,16 +15,13 @@
         }
 
         for (int i = 0; i < newPassword?.Length; i++)
-
         {
             char character = newPassword[i]; // Get each character at index i 
 
             if (specialChars.Contains(newPassword[i])) hasSpecial = true;
             if (char.IsLower(character)) hasLower = true;
             if (char.IsUpper(character)) hasUpper = true;
-
         }
-
         //Check if all conditions are met 
         if (hasSpecial && hasUpper && hasLower)
         {
@@ -34,10 +30,7 @@
         else
         {
             Console.WriteLine("❌Password must contain at least one uppercase and lower letter, together with at lest one special character");
-
         }
-
-
     }
 
 }

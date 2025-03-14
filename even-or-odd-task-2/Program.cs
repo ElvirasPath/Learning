@@ -9,23 +9,7 @@
             if (int.TryParse(userInput, out int result))
             {
                 char lastCharacter = userInput[userInput.Length - 1];
-                if (lastCharacter == '0')
-                {
-                    Console.WriteLine("Even number");
-                }
-                if (lastCharacter == '2')
-                {
-                    Console.WriteLine("Even number");
-                }
-                if (lastCharacter == '4')
-                {
-                    Console.WriteLine("Even number");
-                }
-                if (lastCharacter == '6')
-                {
-                    Console.WriteLine("Even number");
-                }
-                if (lastCharacter == '8')
+                if (lastCharacter == '0' || lastCharacter == '2'||  lastCharacter == '4' || lastCharacter == '6' || lastCharacter == '8')
                 {
                     Console.WriteLine("Even number");
                 }

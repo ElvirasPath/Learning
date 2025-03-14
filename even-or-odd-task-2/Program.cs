@@ -14,10 +14,6 @@
                 {
                     Console.WriteLine("Even number");
                 }
-                // if (lastCharacter == '0' || lastCharacter == '2' || lastCharacter == '4' || lastCharacter == '6' || lastCharacter == '8')
-                // {
-                //     Console.WriteLine("Even number");
-                // }
                 else
                 {
                     Console.WriteLine("Odd number");

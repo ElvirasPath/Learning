@@ -8,24 +8,24 @@
             string? userInput = Console.ReadLine();
             if (int.TryParse(userInput, out int result))
             {
-                //char[] evenChars = {'0', '2', '4', '6', '8'};
-                if (userInput[userInput.Length - 1] == '0')
+                char lastCharacter = userInput[userInput.Length - 1];
+                if (lastCharacter == '0')
                 {
                     Console.WriteLine("Even number");
                 }
-                if (userInput[userInput.Length - 1] == '2')
+                if (lastCharacter == '2')
                 {
                     Console.WriteLine("Even number");
                 }
-                if (userInput[userInput.Length - 1] == '4')
+                if (lastCharacter == '4')
                 {
                     Console.WriteLine("Even number");
                 }
-                if (userInput[userInput.Length - 1] == '6')
+                if (lastCharacter == '6')
                 {
                     Console.WriteLine("Even number");
                 }
-                if (userInput[userInput.Length - 1] == '8')
+                if (lastCharacter == '8')
                 {
                     Console.WriteLine("Even number");
                 }
@@ -33,7 +33,6 @@
                 {
                     Console.WriteLine("Odd number");
                 }
-
             }
             else
             {
@@ -45,11 +44,10 @@
             Console.Write("Do you want to exit?(yes / no): ");
             string? exit = Console.ReadLine();
 
-        if (exit == "yes")
-         {
-            break;
-         }
-
+            if (exit == "yes")
+            {
+                break;
+            }
         } while (true);
     }
 }

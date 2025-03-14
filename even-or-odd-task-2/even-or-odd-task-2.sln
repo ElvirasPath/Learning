@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "even-or-odd-task-2", "even-or-odd-task-2.csproj", "{ABF5BE57-3074-4EAB-0E83-24D8745CA544}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ABF5BE57-3074-4EAB-0E83-24D8745CA544}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABF5BE57-3074-4EAB-0E83-24D8745CA544}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABF5BE57-3074-4EAB-0E83-24D8745CA544}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABF5BE57-3074-4EAB-0E83-24D8745CA544}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E315545B-36CE-4005-8F05-1F4644BEA135}
+	EndGlobalSection
+EndGlobal

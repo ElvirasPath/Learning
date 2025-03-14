@@ -4,7 +4,6 @@
     {
         do
         {
-
             Console.WriteLine("Enter a number: ");
             string? userInput = Console.ReadLine();
             if (int.TryParse(userInput, out int result))
@@ -14,11 +13,10 @@
                 {
                     Console.WriteLine("Even number");
                 }
-                else 
+                else
                 {
                     Console.WriteLine("Odd number");
                 }
-             
             }
             else
             {
@@ -30,10 +28,10 @@
             Console.Write("Do you want to exit?(yes / no): ");
             string? exit = Console.ReadLine();
 
-            if (exit == "yes") {
+            if (exit == "yes")
+            {
                 break;
             }
-
         } while (true);
     }
 }

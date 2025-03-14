@@ -2,6 +2,7 @@
 {
     static void Main(string[] args)
     {
+        string? evenDigits = "02468";
         do
         {
             Console.WriteLine("Enter a number: ");
@@ -9,7 +10,7 @@
             if (int.TryParse(userInput, out _))
             {
                 char lastCharacter = userInput[userInput.Length - 1];
-                if (lastCharacter == '0' || lastCharacter == '2'||  lastCharacter == '4' || lastCharacter == '6' || lastCharacter == '8')
+                if (evenDigits.Contains(lastCharacter))
                 {
                     Console.WriteLine("Even number");
                 }

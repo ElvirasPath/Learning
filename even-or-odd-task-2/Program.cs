@@ -6,7 +6,7 @@
         {
             Console.WriteLine("Enter a number: ");
             string? userInput = Console.ReadLine();
-            if (int.TryParse(userInput, out int result))
+            if (int.TryParse(userInput, out _))
             {
                 char lastCharacter = userInput[userInput.Length - 1];
                 if (lastCharacter == '0' || lastCharacter == '2'||  lastCharacter == '4' || lastCharacter == '6' || lastCharacter == '8')

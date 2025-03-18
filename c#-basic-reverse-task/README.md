@@ -10,7 +10,7 @@ A simple console application that reverses words
 
 3. Use `for` to find extract all the characters from the `userInput`. The loop starts from the last character.
 
-4. To save all the indexes from every loop use a variable `char` named character. To collect all the characters from every loop, use `reversed = reversed + character` (`i = i + 1`)
+4. To collect all the characters from every loop, use `reversed = reversed + userInput[i]` (`i = i + 1`)
 
 5. `Console.WriteLine` prints the reversed word.
 

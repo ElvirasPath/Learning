@@ -6,22 +6,12 @@ class Program
     {
         do
         {
-            Console.WriteLine("Enter a number: ");
+            Console.Write("Enter a number: ");
             string? userInput = Console.ReadLine();
-            bool isPrime = true;
-
-            if (int.TryParse(userInput, out int result))
+            if (long.TryParse(userInput, out long result))
             {
-                for (int i = 2; i < result; i++)
-                {
-                    if (result % i == 0)
-                    {
-                        isPrime = false;
-                        break;
-                    }
-                }
-
-                if (isPrime == true && result != 1)
+                bool isPrime = IsPrime(result);
+                if (isPrime == true)
                 {
                     Console.WriteLine("Prime number");
                 }
@@ -45,5 +35,23 @@ class Program
                 break;
             }
         } while (true);
+    }
+
+    static bool IsPrime(long number)
+    {
+        if (number == 1)
+        {
+            return false;
+        }
+        
+        for (int i = 2; i <= Math.Sqrt(number); i++)
+        {
+            if (number % i == 0)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

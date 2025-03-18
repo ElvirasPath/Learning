@@ -5,11 +5,9 @@ class Program
     {
         do
         {
-            Console.Write("Enter your word: ");
+            Console.Write("Enter a word: ");
             string? userInput = Console.ReadLine();
             string? reversed = string.Empty;
-
-    
 
             for (int i = userInput.Length - 1; i >= 0; i--)
             {
@@ -17,7 +15,7 @@ class Program
             }
 
             Console.WriteLine();
-            Console.WriteLine($"Your reversed result: {reversed}");
+            Console.WriteLine($"Reversed result: {reversed}");
 
             Console.WriteLine();
             Console.Write("Write 'end' if you want to end your session: ");

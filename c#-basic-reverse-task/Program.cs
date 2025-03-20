@@ -1,4 +1,5 @@
 ﻿namespace training;
+
 class Program
 {
     static void Main(string[] args)
@@ -13,6 +14,7 @@ class Program
 
             Console.WriteLine();
             Console.Write("Write 'end' if you want to end your session: ");
+            
             string? exit = Console.ReadLine();
             if (exit == "end")
             {
@@ -23,7 +25,7 @@ class Program
 
     static string Reverse(string? userInput)
     {
-        if (userInput == null)
+        if (userInput is null)
         {
             return string.Empty;
         }

@@ -7,12 +7,8 @@ class Program
         {
             Console.Write("Enter a word: ");
             string? userInput = Console.ReadLine();
-            string? reversed = string.Empty;
 
-            for (int i = userInput.Length - 1; i >= 0; i--)
-            {
-                reversed = reversed + userInput[i];
-            }
+            string reversed = Reversed(userInput);
 
             Console.WriteLine();
             Console.WriteLine($"Reversed result: {reversed}");
@@ -26,5 +22,22 @@ class Program
             }
         } while (true);
     }
+
+    static string Reversed(string? userInput)
+    {
+        if (userInput == null)
+        {
+            return string.Empty;
+        }
+
+        string? reversed = string.Empty;
+        for (int i = userInput.Length - 1; i >= 0; i--)
+        {
+            reversed += userInput[i];
+        }
+
+        return userInput;
+    }
 }
+
  

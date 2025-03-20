@@ -14,7 +14,7 @@ class Program
 
             Console.WriteLine();
             Console.Write("Write 'end' if you want to end your session: ");
-            
+
             string? exit = Console.ReadLine();
             if (exit == "end")
             {
@@ -30,7 +30,7 @@ class Program
             return string.Empty;
         }
 
-        string? reversed = string.Empty;
+        string reversed = string.Empty;
         for (int i = userInput.Length - 1; i >= 0; i--)
         {
             reversed += userInput[i];

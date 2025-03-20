@@ -8,7 +8,7 @@ class Program
             Console.Write("Enter a word: ");
             string? userInput = Console.ReadLine();
 
-            string reversed = Reversed(userInput);
+            string reversed = Reverse(userInput);
 
             Console.WriteLine();
             Console.WriteLine($"Reversed result: {reversed}");
@@ -23,7 +23,7 @@ class Program
         } while (true);
     }
 
-    static string Reversed(string? userInput)
+    static string Reverse(string? userInput)
     {
         if (userInput == null)
         {
@@ -36,7 +36,7 @@ class Program
             reversed += userInput[i];
         }
 
-        return userInput;
+        return reversed;
     }
 }
 

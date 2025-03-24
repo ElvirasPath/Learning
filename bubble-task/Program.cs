@@ -1,4 +1,4 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Globalization;
 
 namespace bubble_task;
 
@@ -6,25 +6,46 @@ class Program
 {
     static void Main(string[] args)
     {
-        int[] myNumbers = { 12, 45, 89, 3, 50 };
-        //Console.WriteLine($"Before Swap: {myNumbers}");
+        Console.Write("Enter your numbers: ");
+        string? myNumbersString = Console.ReadLine();
 
-        for (int i = 0; i < myNumbers.Length; i++)
+        if (myNumbersString is null)
         {
-            for (int j = 0; j < myNumbers.Length; j++)
+            Console.WriteLine("Wrong operation");
+            return;
+        }
+
+        string[] arrayOfStrings = myNumbersString.Split(' ');
+
+        Console.WriteLine("Before: ");
+        foreach (int i in myNumbers)
+        {
+            Console.Write($"{i} ");
+        }
+
+        myNumbers = Sort(myNumbers);
+        Console.WriteLine();
+        Console.WriteLine("After: ");
+        foreach (int i in myNumbers)
+        {
+            Console.Write($"{i} ");
+        }
+    }
+
+    static int[] Sort(int[] numbers)
+    {
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            for (int j = 0; j < numbers.Length; j++)
             {
-                if (myNumbers[i] > myNumbers[j])
+                if (numbers[i] < numbers[j])
                 {
-                    int temp = myNumbers[i];
-                    myNumbers[i] = myNumbers[j];
-                    myNumbers[j] = temp;
+                    int temp = numbers[i];
+                    numbers[i] = numbers[j];
+                    numbers[j] = temp;
                 }
             }
         }
-        foreach (int i in myNumbers)
-        {
-            Console.WriteLine(i);
-        }
-        //Console.WriteLine($"After Swap: {myNumbers}");
+        return numbers;
     }
 }

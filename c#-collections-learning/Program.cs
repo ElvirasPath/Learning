@@ -1,78 +1,76 @@
-﻿namespace uke2Dag1;
-
-class Program
+﻿class Program
 {
     static void Main(string[] args)
     {
-        // int[] arrayExample = [1, 2, 56, 4, 8, 56, 8, 4, 6];
-        // int[] secondArrayExample = new int[10];
-        // secondArrayExample[4] = 5;
-
-        // int elementWeWant = arrayExample[4];
-        // Console.WriteLine(elementWeWant);
-
-
-        // List<int> shoppingList = [1, 4, 8, 7, 5, 41, 5, 4, 798, 69];
-
-        // Dictionary<string, bool> checker = new Dictionary<string, bool>()
-        // {
-        //     //checker["isThisTrue"] = true; 
-        //     ["isRunning"] = false,
-        //     ["isSitting"] = true
-        // };
-
-        Dog Dog = new Dog();
-        Dog.Name = "Fido";
-        Dog.Age = 5;
-
-        List<string> Types = new List<string>
+        List<Animal> animals = new List<Animal>
         {
-            "Golden Retriever",
-            "Labrador"
+            new Animal("Max", 5, "Labrador"),
+            new Animal("Cookie", 10, "British Straight"),
+            new Animal("Archie", 3, "Kakadu")
         };
-        Dog.Pedegree = Types;
-        Dog.BetterGreeting();
 
-        Dog Ralph = new Dog();
-        Ralph.Name = "Ralph";
-        Ralph.Age = 3;
-
-        List<string> Types2 = new List<string>
+        do
         {
-            "Schauzer",
-            "Douberman"
-        };
-        Ralph.Pedegree = Types2;
-        Ralph.BetterGreeting();
+            string? userInput = Console.ReadLine();
+            if (userInput is "exit shop")
+            {
+                Console.WriteLine("Have a great day! See you soon:)");
+                break;
+            }
+            if (userInput is "show animals")
+            {
+                foreach (Animal animal in animals)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine($"This animal name is {animal.Name}.");
+                    Console.WriteLine($"This animal age is {animal.Age}.");
+                    Console.WriteLine($"This animal breed is {animal.Breed}.");
+                    Console.WriteLine();
+                }
+            }
+            if (userInput is "pet animal")
+            {
+                string names = string.Empty;
+                foreach (Animal animal in animals)
+                {
+                    if (animal.Name != null)
+                    {
+                        Console.Write($"{animal.Name} ");
+                        names += animal.Name;
+                    }
+                }
 
+                Console.WriteLine();
+                Console.Write("Choose an animal: ");
+                userInput = Console.ReadLine();
+
+                if (userInput is null)
+                {
+                    Console.WriteLine("Wrong name");
+                    continue;
+                }
+                if (names.Contains(userInput))
+                {
+                    Console.WriteLine();
+                    Console.WriteLine($"{userInput} is happy");
+                }
+            }
+        } while (true);
     }
 }
 
-public class Dog
+public class Animal
+{
+    public string? Name { get; set; } //property
+
+    public int Age { get; set; }
+
+    public string? Breed { get; set; }
+
+    public Animal(string? name, int age, string? breed) //parameters
     {
-        public string? Name;
-
-        public int Age;
-
-        public List<string>? Pedegree;
-
-        public void BetterGreeting()
-        {
-            if (Pedegree is null || Pedegree.Count is 0)
-            {
-                Console.WriteLine($"Hello this is {Name}. It is {Age} years old. It needs a pedegree, please provide one.");
-                return;
-            }
-            string values;
-
-            if (Pedegree.Count is 1)
-            {
-                values = Pedegree[0];
-            }
-            else
-            {
-                values = string.Join(",", Pedegree.Take(Pedegree.Count - 1)) + " & " + Pedegree.Last();
-            }
-            Console.WriteLine($"Hello this is {Name}. It is {Age} years old. It is a {values}");
-        }
+        Name = name;
+        Age = age;
+        Breed = breed;
     }
+}

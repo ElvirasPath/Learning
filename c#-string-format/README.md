@@ -1,6 +1,6 @@
 # Task for string formating
 
-## Task description:x
+## Task description:
 
 In this task, we will create a smart input system that can receive and process user input while ensuring the data is cleaned and formatted correctly.
 

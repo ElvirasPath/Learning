@@ -13,11 +13,6 @@ class Program
         }
         string greeting = Greeting();
         string? result = TryParseToDifferentTypes(userInput);
-        if (userInput is null)
-        {
-            Console.WriteLine("Enter something");
-            return;
-        }
         Console.WriteLine($"{greeting} Your input {result}");
     }
 

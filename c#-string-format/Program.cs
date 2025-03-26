@@ -1,11 +1,4 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Net;
-using System.Reflection.Metadata.Ecma335;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks.Dataflow;
-
-namespace stringformatting;
+﻿namespace stringformatting;
 
 class Program
 {
@@ -26,7 +19,6 @@ class Program
             return;
         }
         Console.WriteLine($"{greeting} Your input {result}");
-
     }
 
     static string Greeting()
@@ -45,12 +37,12 @@ class Program
         {
             return $" is a number {number}";
         }
-        else if (DateTime.TryParse(userInput, out DateTime date))
-        //else if (DateTime.TryParseExact(userInput, "dd-MM-yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime date))
+
+        string[] formats = { "dd-MM-yyyy", "MM/dd/yyyy", "yyyy/MM/dd", "dd MMM yyyy" };
+        if (DateTime.TryParseExact(userInput, formats, null, System.Globalization.DateTimeStyles.None, out DateTime date))
         {
             return $"is a date {date}";
         }
         else return $"is here {userInput}";
     }
-        
 }

@@ -30,17 +30,17 @@ class Program
     {
         if (int.TryParse(userInput, out int number))
         {
-            return $" is a number {number}";
+            return $" {number} is a number.";
         }
-        if  (double.TryParse(userInput, out double num))
+        if  (double.TryParse(userInput, out double doubleNumber))
         {
-            return $" is a number {num}";
+            return $"{doubleNumber} is a number.";
         }
 
         string[] formats = { "dd-MM-yyyy", "MM/dd/yyyy", "yyyy/MM/dd", "dd MMM yyyy" };
         if (DateTime.TryParseExact(userInput, formats, null, System.Globalization.DateTimeStyles.None, out DateTime date))
         {
-            return $"is a date {date}";
+            return $"{date} is a date.";
         }
         else return $"is {userInput}";
     }

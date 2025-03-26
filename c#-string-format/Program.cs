@@ -12,7 +12,7 @@ class Program
             return;
         }
         string greeting = Greeting();
-        string? result = ParseDate(userInput);
+        string? result = TryParseToDifferentTypes(userInput);
         if (userInput is null)
         {
             Console.WriteLine("Enter something");
@@ -31,9 +31,9 @@ class Program
         else return "Good evening/night!";
     }
 
-    static string ParseDate(string userInput)
+    static string TryParseToDifferentTypes(string userInput)
     {
-        if (int.TryParse(userInput, out int number))
+        if (double.TryParse(userInput, out double number))
         {
             return $" is a number {number}";
         }
@@ -43,6 +43,6 @@ class Program
         {
             return $"is a date {date}";
         }
-        else return $"is here {userInput}";
+        else return $"is {userInput}";
     }
 }

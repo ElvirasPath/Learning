@@ -30,7 +30,7 @@ class Program
     {
         if (int.TryParse(userInput, out int number))
         {
-            return $" {number} is a number.";
+            return $"{number} is a number.";
         }
         if  (double.TryParse(userInput, out double doubleNumber))
         {

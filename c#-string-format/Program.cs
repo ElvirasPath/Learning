@@ -33,9 +33,13 @@ class Program
 
     static string TryParseToDifferentTypes(string userInput)
     {
-        if (double.TryParse(userInput, out double number))
+        if (int.TryParse(userInput, out int number))
         {
             return $" is a number {number}";
+        }
+        if  (double.TryParse(userInput, out double num))
+        {
+            return $" is a number {num}";
         }
 
         string[] formats = { "dd-MM-yyyy", "MM/dd/yyyy", "yyyy/MM/dd", "dd MMM yyyy" };

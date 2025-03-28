@@ -4,24 +4,24 @@ class Program
 {
     static void Main(string[] args)
     {
-        string? userInput = Console.ReadLine();
-        if (userInput is null)
+        string? userName = Console.ReadLine();
+        if (userName is null)
         {
-            Console.WriteLine("Enter sometnig");
+            Console.WriteLine("What is your name?");
             return;
         }
 
-        Console.WriteLine(Greeting());
+        Console.WriteLine(Greeting(userName));
     }
-    static string Greeting()
+    static string Greeting(string userName)
     {
         int time = DateTime.Now.Hour;
         Dictionary<string, string> greetings = new()
         {
-            { "morning", "Good morning!" },
-            { "afternoon", "Good afternoon!" },
-            { "evening", "Good evening!" },
-            {"night", "Good night"}
+            { "morning", $"Good morning, {userName}!"},
+            { "afternoon", $"Good afternoon, {userName}!"},
+            { "evening", $"Good evening, {userName}!"},
+            {"night", $"Good night, {userName}!"}
         };
         if (time >= 4 && time < 12) return greetings["morning"];
         else if (time >= 12 && time < 18) return greetings["afternoon"];

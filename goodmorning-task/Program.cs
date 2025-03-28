@@ -4,14 +4,26 @@ class Program
 {
     static void Main(string[] args)
     {
-        string? userName = Console.ReadLine();
-        if (userName is null)
+        Console.WriteLine("What is your name?");
+        string userName = Console.ReadLine();
+        if (userName is null || userName is " ")
         {
-            Console.WriteLine("What is your name?");
+            Console.WriteLine("Please, enter your name.");
             return;
         }
-
-        Console.WriteLine(Greeting(userName));
+        Console.WriteLine("How many times should I greet you?");
+        if (int.TryParse(Console.ReadLine(), out int times) && times > 0)
+        {
+            for (int i = 0; i < times; i++)
+            {
+                Console.WriteLine(Greeting(userName));
+            }
+        }
+        else
+        {
+            Console.WriteLine("You entered invalid number, we'll great you just ones");
+            Console.WriteLine(Greeting(userName));
+        }
     }
     static string Greeting(string userName)
     {

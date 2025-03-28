@@ -5,8 +5,8 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("What is your name?");
-        string userName = Console.ReadLine();
-        if (userName is null || userName is " ")
+        string? userName = Console.ReadLine();
+        if (String.IsNullOrWhiteSpace(userName))
         {
             Console.WriteLine("Please, enter your name.");
             return;
@@ -17,12 +17,14 @@ class Program
             for (int i = 0; i < times; i++)
             {
                 Console.WriteLine(Greeting(userName));
+
             }
         }
         else
         {
             Console.WriteLine("You entered invalid number, we'll great you just ones");
             Console.WriteLine(Greeting(userName));
+
         }
     }
     static string Greeting(string userName)

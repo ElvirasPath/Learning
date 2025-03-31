@@ -86,7 +86,7 @@ public class Game
         }
     }
 
-    public List<IPlayable> DecideWinner()
+    List<IPlayable> DecideWinner()
     {
         var playersWins = new Dictionary<IPlayable, int>();
         foreach (var player in Players)

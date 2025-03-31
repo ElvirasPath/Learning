@@ -11,28 +11,71 @@ class Program
         int computerScore = 0;
         Console.WriteLine("Welcome to rock, paper or scissiors game!");
 
-        //while (userScore != 3 || computerScore != 3)
-       // {
+        while (computerScore != 3 && userScore != 3)
+        {
             Console.WriteLine($"User score: {userScore}. Computer score: {computerScore}.");
             Console.WriteLine("Choose between rock, paper or scissiors: ");
             string? userInput = Console.ReadLine();
 
-            
-        //}
+            Random random = new Random();
 
-        Random random = new Random();
+            string[] commands = ["rock", "paper", "scissors"];
+            int computersChoice = random.Next(commands.Length);
+            Console.WriteLine($"Computer's choice: {commands[computersChoice]}");
 
-        string[] commands = ["rock", "paper", "scissors"];
-        int computersChoice = random.Next(commands.Length);
-        Console.WriteLine($"Computer's choice: {commands[computersChoice]}");
-
-        if (userInput == commands[0] && commands[computersChoice] == commands[1]) return ("You lost!");
-        else if (userInput == commands[1] && commands[computersChoice] == commands[0]) return ("You win!");
-        else if (userInput == commands[1] && commands[computersChoice] == commands[2]) return ("You lost!");
-        else if (userInput == commands[2] && commands[computersChoice] == commands[1]) return ("You win!");
-        else if (userInput == commands[0] && commands[computersChoice] == commands[2]) return ("You lost!");
-        else if (userInput == commands[2] && commands[computersChoice] == commands[0]) return ("You win!");
-        else Console.WriteLine("It's a tie, nobody wins!");
-    
+            if (commands[computersChoice] == commands[0])
+            {
+                switch (userInput)
+                {
+                    case "paper":
+                        Console.WriteLine("You win!");
+                        userScore++;
+                        break;
+                    case "scissors":
+                        Console.WriteLine("You lost!");
+                        computerScore++;
+                        break;
+                    default:
+                        Console.WriteLine("It's a tie!");
+                        break;
+                }
+            }
+            else if (commands[computersChoice] == commands[1])
+            {
+                switch (userInput)
+                {
+                    case "scissors":
+                        Console.WriteLine("You win!");
+                        userScore++;
+                        break;
+                    case "rock":
+                        Console.WriteLine("You lost!");
+                        computerScore++;
+                        break;
+                    default:
+                        Console.WriteLine("It's a tie!");
+                        break;
+                }
+            }
+            else
+            {
+                switch (userInput)
+                {
+                    case "paper":
+                        Console.WriteLine("You win!");
+                        userScore++;
+                        break;
+                    case "rock":
+                        Console.WriteLine("You lost!");
+                        computerScore++;
+                        break;
+                    default:
+                        Console.WriteLine("It's a tie!");
+                        break;
+                }
+            }
+        }
+        if (userScore is 3) Console.WriteLine("Congrats, you won in 3 rounds!");
+        else Console.WriteLine("Sorry, the computer won you in 3 rounds!");
     }
 }    

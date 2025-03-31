@@ -7,6 +7,7 @@ class Program
 
     static void Main(string[] args)
     {
+        Random random = new Random();
         int userScore = 0;
         int computerScore = 0;
         Console.WriteLine("Welcome to rock, paper or scissiors game!");
@@ -16,8 +17,6 @@ class Program
             Console.WriteLine($"User score: {userScore}. Computer score: {computerScore}.");
             Console.WriteLine("Choose between rock, paper or scissiors: ");
             string? userInput = Console.ReadLine();
-
-            Random random = new Random();
 
             string[] commands = ["rock", "paper", "scissors"];
             int computersChoice = random.Next(commands.Length);

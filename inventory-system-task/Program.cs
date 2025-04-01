@@ -46,8 +46,8 @@ class Program
                     Console.WriteLine("Error, invalid input");
                     return;
                 }
-                Console.Write("Increase - (y) or decrease (n): ");
-                bool increase = Console.Readline().ToLower() == "y";
+                Console.Write("Increase - (+) or decrease (-): ");
+                bool increase = Console.Readline().ToLower() == "+";
                 inventory.UpdateProduct(updateName, amount, increase);
                 break;
 

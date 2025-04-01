@@ -6,78 +6,94 @@ class Program
 {
     static void Main(string[] args)
     {
-        List<Product> products = new List<Product>
-        {
-            new Product ("Pen", 5, 100),
-            new Product ("Pencil", 3, 180),
-            new Product ("Paper",40, 167),
-            new Product ("Notebook", 20, 134),
-            new Product ("Book", 50, 130)
-        };
+        Inventory inventory = new Inventory();
 
-        Console.WriteLine("Welcome to our shop!");
-        Console.WriteLine("Enter what you want to do: 1) check available products 2) check price of available products 3) check quantity of available products");
-        string? userInput = Console.ReadLine();
-
-        if (userInput == "check available products")
+        Console.WriteLine("Welcome to our inventory!");
+        Console.WriteLine("Write /n 1 to add product, /n 2 to update product, /n 3 to show products, /n 4 to exit.");
+        string? userChoice = Console.ReadLine();
+        if (string.IsNullOrWhiteSpace(userChoice))
         {
-            foreach (Product product in products)
-            {
-                Console.WriteLine();
-                Console.Write($"{product.Name};");
-            }
+            Console.WriteLine("Invalid input. Name cannot be empty or spaces.");
+            return;
         }
-        else if (userInput == "check price of available products")
+        
+        switch (userChoice)
         {
-            foreach (Product product in products)
-            {
-                Console.WriteLine();
-                Console.Write($"{product.Name}: {product.Price}$;");
-            }
-        }
-        else if (userInput == "check quantity of available products")
-        {
-            foreach (Product product in products)
-            {
-                Console.WriteLine();
-                Console.Write($"{product.Name}: {product.Quantity}pcs;");
-            }
-        }
-        else Console.WriteLine("Wrong operation.");
-    }
+            case "1":
+                Console.WriteLine("Enter a new product name: ");
+                string? productName = Console.ReadLine();
+                Console.WriteLine("Enter a new product price: ");
+                if (!decimal.TryParse(Console.ReadLine(), out decimal price))
+                {
+                    Console.WriteLine("Error, invalid input");
+                    return;
+                }
+                Console.Write("Enter quantity: ");
+                if (!int.TryParse(Console.ReadLine(), out int quantity))
+                {
+                    Console.WriteLine("Error, invalid input");
+                    return;
+                }
+                inventory.AddProduct(name, price, quantity);
+                break;
 
-    class Product
-    {
-        public string? Name { get; private set; } // property
-        public decimal Price { get; private set; }
-        public double Quantity { get; private set; }
-        public Product(string? name, decimal price, double quantity) // parameters
-        {
-            if (string.IsNullOrWhiteSpace(name))
-                throw new ArgumentException("Product name cannot be empty or whitespace.");
-            if (price < 0)
-                throw new ArgumentException("Price cannot be negative.");
-            if (quantity < 0)
-                throw new ArgumentException("Quantity cannot be negative.");
+            case "2":
+                Console.Write("Enter product name: ");
+                string? productUpdate = Console.ReadLine();
+                Console.Write("Enter amount: ");
+                if (!int.TryParse(Console.ReadLine(), out int amount))
+                {
+                    Console.WriteLine("Error, invalid input");
+                    return;
+                }
+                Console.Write("Increase - (y) or decrease (n): ");
+                bool increase = Console.Readline().ToLower() == "y";
+                inventory.UpdateProduct(updateName, amount, increase);
+                break;
 
-            Name = name;
-            Price = price;
-            Quantity = quantity;
+            case "3":
+                inventory.ShowProducts();
+                break;
 
+            case "4":
+                return;
+
+            default:
+                Console.WriteLine("Wrong operation, please, try again!");
         }
+
+        // {
+        //     Console.WriteLine();
+        //     Console.WriteLine("Write "1" to check available products, "2" to check price of available products, "3" to check quantity of available products");
+        //     string? userInput = Console.ReadLine();
+
+            // if (userInput == "1")
+            // {
+            //     foreach (Product product in products)
+            //     {
+            //         Console.WriteLine();
+            //         Console.Write($"{product.Name};");
+            //     }
+            // }
+            // else if (userInput == "2")
+            // {
+            //     foreach (Product product in products)
+            //     {
+            //         Console.WriteLine();
+            //         Console.Write($"{product.Name}: {product.Price}$;");
+            //     }
+            // }
+            // else if (userInput == "3")
+            // {
+            //     foreach (Product product in products)
+            //     {
+            //         Console.WriteLine();
+            //         Console.Write($"{product.Name}: {product.Quantity}pcs;");
+            //     }
+            // }
+            // else Console.WriteLine("Wrong operation.");
+
+
     }
-    public void IncreaseQuantity(int amount)
-    {
-        if (amount > 0)
-            Quantity += amount;
-        else
-            Console.WriteLine("Wrong operation, you need to enter a valid number");
-    }
-    public void DecreaseQuantity(int amount)
-    {
-        if (amount > 0 && Quantity - amount >= 0)
-            Quantity -= amount;
-        else
-            Console.WriteLine("Wrong operation, you need to enter a valid number");
-    }
-}
+ }
+

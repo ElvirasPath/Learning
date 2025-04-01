@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 namespace inventory;
 
-class Inventory
+public class Inventory
 {
     private List<Product> products = new List<Product>();
 
@@ -14,7 +14,7 @@ class Inventory
     public void UpdateProduct(string? name, int amount, bool increase) {
         foreach (var product in products)
         {
-            if (string ? product.Name is name)
+            if (string? product.Name is name)
             {
                 if (increase)
                 {
@@ -36,6 +36,9 @@ class Inventory
         if (products.Count is 0) Console.WriteLine("This product is sold out.");
         return;
 
-        foreach (var product in products) product.DisplayProduct();
+        foreach (var product in products)
+        {
+            product.DisplayProduct();
+        }
     }
 }

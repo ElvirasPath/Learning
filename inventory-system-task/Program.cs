@@ -16,12 +16,12 @@ class Program
             Console.WriteLine("Invalid input. Name cannot be empty or spaces.");
             return;
         }
-        
+
         switch (userChoice)
         {
             case "1":
                 Console.WriteLine("Enter a new product name: ");
-                string? productName = Console.ReadLine();
+                string? name = Console.ReadLine();
                 Console.WriteLine("Enter a new product price: ");
                 if (!decimal.TryParse(Console.ReadLine(), out decimal price))
                 {
@@ -47,8 +47,8 @@ class Program
                     return;
                 }
                 Console.Write("Increase - (+) or decrease (-): ");
-                bool increase = Console.Readline().ToLower() == "+";
-                inventory.UpdateProduct(updateName, amount, increase);
+                bool increase = Console.Readline() == "+";
+                inventory.UpdateProduct(productName, amount, increase);
                 break;
 
             case "3":
@@ -60,6 +60,7 @@ class Program
 
             default:
                 Console.WriteLine("Wrong operation, please, try again!");
+                break;
         }
 
         // {

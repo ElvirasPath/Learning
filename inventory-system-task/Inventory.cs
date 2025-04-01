@@ -11,21 +11,17 @@ public class Inventory
         products.Add(new Product(name, price, quantity));
     }
 
-    public void UpdateProduct(string? name, int amount, bool increase) {
+    public void UpdateProduct(string? name, int amount, bool increase)
+    {
         foreach (var product in products)
         {
-            if (string? product.Name is name)
+            if (product.Name is name)
             {
                 if (increase)
-                {
                     product.IncreaseQuantity(amount);
-                }
                 else
-                {
                     product.DecreaseQuantity(amonut);
-                    return;
-                }
-
+                return;
             }
         }
         Console.WriteLine("Invalid product name.");
@@ -33,12 +29,15 @@ public class Inventory
 
     public void ShowProducts()
     {
-        if (products.Count is 0) Console.WriteLine("This product is sold out.");
-        return;
+        if (products.Count is 0)
+        {
+            Console.WriteLine("This product is sold out.");
+            return;
+        }
 
         foreach (var product in products)
-        {
-            product.DisplayProduct();
-        }
+            {
+                product.DisplayProduct();
+            }
     }
 }

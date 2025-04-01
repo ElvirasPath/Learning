@@ -39,7 +39,7 @@ class Program
 
             case "2":
                 Console.Write("Enter product name: ");
-                string? productUpdate = Console.ReadLine();
+                string? updateName = Console.ReadLine();
                 Console.Write("Enter amount: ");
                 if (!int.TryParse(Console.ReadLine(), out int amount))
                 {
@@ -48,7 +48,7 @@ class Program
                 }
                 Console.Write("Increase - (+) or decrease (-): ");
                 bool increase = Console.Readline() == "+";
-                inventory.UpdateProduct(productName, amount, increase);
+                inventory.UpdateProduct(updateName, amount, increase);
                 break;
 
             case "3":

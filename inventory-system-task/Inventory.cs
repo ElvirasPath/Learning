@@ -15,12 +15,12 @@ public class Inventory
     {
         foreach (var product in products)
         {
-            if (product.Name is name)
+            if (product.Name == name)
             {
                 if (increase)
                     product.IncreaseQuantity(amount);
                 else
-                    product.DecreaseQuantity(amonut);
+                    product.DecreaseQuantity(amount);
                 return;
             }
         }

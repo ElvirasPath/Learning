@@ -47,7 +47,7 @@ class Program
                     return;
                 }
                 Console.Write("Increase - (+) or decrease (-): ");
-                bool increase = Console.Readline() == "+";
+                bool increase = Console.ReadLine() == "=";
                 inventory.UpdateProduct(updateName, amount, increase);
                 break;
 

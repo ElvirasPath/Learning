@@ -21,10 +21,10 @@ public class Inventory
                     product.IncreaseQuantity(amount);
                 else
                     product.DecreaseQuantity(amount);
+                Console.WriteLine("Invalid product name.");
                 return;
             }
         }
-        Console.WriteLine("Invalid product name.");
     }
 
     public void ShowProducts()
@@ -36,8 +36,8 @@ public class Inventory
         }
 
         foreach (var product in products)
-            {
-                product.DisplayProduct();
-            }
+        {
+            product.DisplayProduct();
+        }
     }
 }

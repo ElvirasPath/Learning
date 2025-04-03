@@ -67,16 +67,16 @@ class Bike : Vehicle
 interface IvehicleService // Interface for vehicle services
 {
     void ChargeBattery();
-}
+} 
 
 class ElectricCar : Car, IvehicleService //Implementing the interface in Car
-{
-    public ElectricCar(string? brand, int speed) : base(brand, speed) { }
-    public void ChargeBattery()
     {
-        Console.WriteLine($"The {Brand} is charging the battery.");
+        public ElectricCar(string? brand, int speed) : base(brand, speed) { }
+        public void ChargeBattery()
+        {
+            Console.WriteLine($"The {Brand} is charging the battery.");
+        }
     }
-}
 
 //Overload the SpeedUp()
 class Speed
@@ -86,9 +86,12 @@ class Speed
         Console.WriteLine($"Speed increased by {amount} km/h");
     }
 }
-
+interface IAcceleratable // Defining an interface for base class
+{
+    void Accelerate();
+}
 //Classes Boat and Train function without inheriting base class Vehicle.
-class Boat
+class Boat : IAcceleratable
 {
     public string? Brand { get; set; }
     public int Speed { get; set; }
@@ -102,6 +105,11 @@ class Boat
     public void Move()
     {
         Console.WriteLine($"The {Brand} is sailing at {Speed} km/h");
+    }
+
+    public void Accelerate()
+    {
+        Console.WriteLine($"The {Type} is accelerating.");
     }
 }
 

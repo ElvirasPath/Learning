@@ -52,7 +52,6 @@ class Car : Vehicle  // Derived class (Child class)
     {
         Console.WriteLine($"The car {Brand} is moving with speed {Speed} km/h.");
     }
-
 }
 
 class Bike : Vehicle
@@ -109,7 +108,7 @@ class Boat : IAcceleratable
 
     public void Accelerate()
     {
-        Console.WriteLine($"The {Type} is accelerating.");
+        Console.WriteLine($"The {Brand} is accelerating.");
     }
 }
 

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-namespace inventory;
+namespace inventorysystem;
 
 class Program
 {
@@ -11,7 +11,7 @@ class Program
         Console.WriteLine("Welcome to our inventory!");
         do
         {
-            Console.WriteLine("Write /n 1 to add product, /n 2 to update product, /n 3 to show products, /n 4 to exit.");
+            Console.WriteLine("Write /1 to add product, /2 to update product, /3 to show products, /4 to exit.");
             string? userChoice = Console.ReadLine();
             if (string.IsNullOrWhiteSpace(userChoice))
             {
@@ -49,7 +49,7 @@ class Program
                         return;
                     }
                     Console.Write("Increase - (+) or decrease (-): ");
-                    bool increase = Console.ReadLine() == "=";
+                    bool increase = Console.ReadLine() == "+";
                     inventory.UpdateProduct(updateName, amount, increase);
                     break;
 
@@ -71,39 +71,88 @@ class Program
                 break;
             }
         } while (true);
-
-        // {
-            //     Console.WriteLine();
-            //     Console.WriteLine("Write "1" to check available products, "2" to check price of available products, "3" to check quantity of available products");
-            //     string? userInput = Console.ReadLine();
-
-            // if (userInput == "1")
-            // {
-            //     foreach (Product product in products)
-            //     {
-            //         Console.WriteLine();
-            //         Console.Write($"{product.Name};");
-            //     }
-            // }
-            // else if (userInput == "2")
-            // {
-            //     foreach (Product product in products)
-            //     {
-            //         Console.WriteLine();
-            //         Console.Write($"{product.Name}: {product.Price}$;");
-            //     }
-            // }
-            // else if (userInput == "3")
-            // {
-            //     foreach (Product product in products)
-            //     {
-            //         Console.WriteLine();
-            //         Console.Write($"{product.Name}: {product.Quantity}pcs;");
-            //     }
-            // }
-            // else Console.WriteLine("Wrong operation.");
-
-
-        }
+    }
  }
 
+
+class Product
+{
+    public string? Name { get; private set; } // property
+    public decimal Price { get; private set; }
+    public double Quantity { get; private set; }
+
+    public Product(string? name, decimal price, double quantity) // parameters
+    {
+        if (string.IsNullOrWhiteSpace(name))
+            throw new ArgumentException("Product name cannot be empty or whitespace.");
+        if (price < 0)
+            throw new ArgumentException("Price cannot be negative.");
+        if (quantity < 0)
+            throw new ArgumentException("Quantity cannot be negative.");
+
+        Name = name;
+        Price = price;
+        Quantity = quantity;
+
+    }
+    public void IncreaseQuantity(int amount)
+    {
+        if (amount > 0)
+            Quantity += amount;
+        else
+            Console.WriteLine("Wrong operation, you need to enter a valid number");
+    }
+    public void DecreaseQuantity(int amount)
+    {
+        if (amount > 0 && Quantity - amount >= 0)
+            Quantity -= amount;
+        else
+            Console.WriteLine("Wrong operation, you need to enter a valid number");
+    }
+
+    public void DisplayProduct()
+    {
+        Console.WriteLine($"{Name} ${Price} pcs{Quantity}");
+    }
+}
+
+
+public class Inventory
+{
+    private List<Product> products = new List<Product>();
+
+    public void AddProduct(string? name, decimal price, int quantity)
+    {
+        products.Add(new Product(name, price, quantity));
+    }
+
+    public void UpdateProduct(string? name, int amount, bool increase)
+    {
+        foreach (var product in products)
+        {
+            if (product.Name == name)
+            {
+                if (increase)
+                    product.IncreaseQuantity(amount);
+                else
+                    product.DecreaseQuantity(amount);
+               // Console.WriteLine("Invalid product name.");
+                return;
+            }
+        }
+    }
+
+    public void ShowProducts()
+    {
+        if (products.Count is 0)
+        {
+            Console.WriteLine("This product is sold out.");
+            return;
+        }
+
+        foreach (var product in products)
+        {
+            product.DisplayProduct();
+        }
+    }
+}

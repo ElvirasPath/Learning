@@ -1,8 +1,4 @@
-﻿using System.Dynamic;
-using System.Numerics;
-using Microsoft.VisualBasic;
-
-namespace vehiclesystem;
+﻿namespace vehiclesystem;
 
 class Program
 {
@@ -13,6 +9,12 @@ class Program
 
         Vehicle bike = new Bike("Harley-Davidson", 220);
         bike.Move();
+
+        Boat boat = new Boat("Cruise-boat", 60);
+        boat.Move();
+
+        Train train = new Train("Speed-train", 200);
+        train.Move();
 
         
         // List<Vehicle> cars = new List<Vehicle>
@@ -96,5 +98,39 @@ class Speed
     public void SpeedUp(int amount)
     {
         Console.WriteLine($"Speed increased by {amount} km/h");
+    }
+}
+
+class Boat
+{
+    public string? Brand { get; set; }
+    public int Speed { get; set; }
+
+    public Boat(string? brand, int speed)
+    {
+        Brand = brand;
+        Speed = speed;
+    }
+
+    public void Move()
+    {
+        Console.WriteLine($"The {Brand} is sailing at {Speed} km/h");
+    }
+}
+
+class Train
+{
+    public string? Type { get; set; }
+    public int Speed { get; set; }
+
+    public Train(string? type, int speed)
+    {
+        Type = type;
+        Speed = speed;
+    }
+
+    public void Move()
+    {
+        Console.WriteLine($"The {Type} is moving with {Speed} km/h");
     }
 }

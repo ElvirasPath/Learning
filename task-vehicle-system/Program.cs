@@ -1,0 +1,142 @@
+﻿namespace vehiclesystem;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Vehicle car = new Car("BMW", 180);
+        car.Move();
+
+
+        Vehicle bike = new Bike("Harley-Davidson", 220);
+        bike.Move();
+
+        Boat boat = new Boat("Cruise-boat", 60);
+        boat.Move();
+
+        Train train = new Train("Speed-train", 200);
+        train.Move();
+        //Interface
+        IvehicleService ElectricCar = new ElectricCar("Tesla", 120);
+        ElectricCar.ChargeBattery();
+    }
+}
+
+public class Vehicle //base class
+{
+    public string? Brand { get; set; } // property
+    public int Speed { get; set; }
+
+    public Vehicle(string? brand, int speed) //parameters of constructor to initialize
+    {
+        Brand = brand;
+        Speed = speed;
+    }
+
+    public void Display()
+    {
+        Console.WriteLine($"Brand: {Brand}, Speed: {Speed} km/h");
+    }
+
+    public virtual void Move() // virtual method to be overridden in child(derived) clases)
+    {
+        Console.WriteLine("The vehicle is moving.");
+    }
+}
+
+//These classes inherit from Vehicle base class and override the Move() method.
+class Car : Vehicle  // Derived class (Child class)
+{
+    public Car(string? brand, int speed) : base(brand, speed) { }
+    public override void Move()
+    {
+        Console.WriteLine($"The car {Brand} is moving with speed {Speed} km/h.");
+    }
+
+    public void SpeedUp(int amount) //Overloaded SpeedUp method
+    {
+        Speed += amount;
+        Console.WriteLine($"Speed increased by {amount} km/h");
+    }
+    public void Accelerate(Speed speedControl, int increment)
+    {
+        speedControl.SpeedUp(increment);
+        Speed += increment;
+    }
+}
+
+class Bike : Vehicle
+{
+    public Bike(string? brand, int speed) : base(brand, speed) { }
+    public override void Move()
+    {
+        Console.WriteLine($"The bike {Brand} is moving with speed {Speed} km/h.");
+    }
+}
+
+interface IvehicleService // Interface for vehicle services
+{
+    void ChargeBattery();
+} 
+
+class ElectricCar : Car, IvehicleService //Implementing the interface in Car
+    {
+        public ElectricCar(string? brand, int speed) : base(brand, speed) { }
+        public void ChargeBattery()
+        {
+            Console.WriteLine($"The {Brand} is charging the battery.");
+        }
+    }
+
+//Overload the SpeedUp()
+class Speed
+{
+    public void SpeedUp(int amount)
+    {
+        Console.WriteLine($"Speed increased by {amount} km/h");
+    }
+}
+  
+interface IAcceleratable // Defining an interface for base class
+    {
+        void Accelerate();
+    }
+//Classes Boat and Train function without inheriting base class Vehicle.
+class Boat : IAcceleratable
+{
+    public string? Brand { get; set; }
+    public int Speed { get; set; }
+
+    public Boat(string? brand, int speed)
+    {
+        Brand = brand;
+        Speed = speed;
+    }
+
+    public void Move()
+    {
+        Console.WriteLine($"The {Brand} is sailing at {Speed} km/h");
+    }
+
+    public void Accelerate()
+    {
+        Console.WriteLine($"The {Brand} is accelerating.");
+    }
+}
+
+class Train
+{
+    public string? Type { get; set; }
+    public int Speed { get; set; }
+
+    public Train(string? type, int speed)
+    {
+        Type = type;
+        Speed = speed;
+    }
+
+    public void Move()
+    {
+        Console.WriteLine($"The {Type} is moving with {Speed} km/h");
+    }
+}

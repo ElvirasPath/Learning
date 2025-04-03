@@ -52,6 +52,17 @@ class Car : Vehicle  // Derived class (Child class)
     {
         Console.WriteLine($"The car {Brand} is moving with speed {Speed} km/h.");
     }
+
+    public void SpeedUp(int amount) //Overloaded SpeedUp method
+    {
+        Speed += amount;
+        Console.WriteLine($"Speed increased by {amount} km/h");
+    }
+    public void Accelerate(Speed speedControl, int increment)
+    {
+        speedControl.SpeedUp(increment);
+        Speed += increment;
+    }
 }
 
 class Bike : Vehicle
@@ -85,10 +96,11 @@ class Speed
         Console.WriteLine($"Speed increased by {amount} km/h");
     }
 }
+  
 interface IAcceleratable // Defining an interface for base class
-{
-    void Accelerate();
-}
+    {
+        void Accelerate();
+    }
 //Classes Boat and Train function without inheriting base class Vehicle.
 class Boat : IAcceleratable
 {

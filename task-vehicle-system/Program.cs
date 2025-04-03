@@ -7,6 +7,7 @@ class Program
         Vehicle car = new Car("BMW", 180);
         car.Move();
 
+
         Vehicle bike = new Bike("Harley-Davidson", 220);
         bike.Move();
 
@@ -15,18 +16,9 @@ class Program
 
         Train train = new Train("Speed-train", 200);
         train.Move();
-
-        
-        // List<Vehicle> cars = new List<Vehicle>
-        // {
-        //     new Vehicle ("Tesla", 200),
-        //     new Vehicle ("BMW", 290)
-        // };
-
-        // List<Vehicle> bikes = new List<Vehicle>
-        // {
-        //     new Vehicle 
-        // }
+        //Interface
+        IvehicleService ElectricCar = new ElectricCar("Tesla", 120);
+        ElectricCar.ChargeBattery();
     }
 }
 
@@ -55,7 +47,7 @@ public class Vehicle //base class
 //These classes inherit from Vehicle base class and override the Move() method.
 class Car : Vehicle  // Derived class (Child class)
 {
-    public Car(string? brand, int speed) : base(brand, speed) {}
+    public Car(string? brand, int speed) : base(brand, speed) { }
     public override void Move()
     {
         Console.WriteLine($"The car {Brand} is moving with speed {Speed} km/h.");
@@ -75,7 +67,6 @@ class Bike : Vehicle
 interface IvehicleService // Interface for vehicle services
 {
     void ChargeBattery();
-    void FillTires();
 }
 
 class ElectricCar : Car, IvehicleService //Implementing the interface in Car
@@ -84,11 +75,6 @@ class ElectricCar : Car, IvehicleService //Implementing the interface in Car
     public void ChargeBattery()
     {
         Console.WriteLine($"The {Brand} is charging the battery.");
-    }
-
-    public void FillTires()
-    {
-        Console.WriteLine($"The {Brand} is filling its tires.");
     }
 }
 
@@ -101,6 +87,7 @@ class Speed
     }
 }
 
+//Classes Boat and Train function without inheriting base class Vehicle.
 class Boat
 {
     public string? Brand { get; set; }

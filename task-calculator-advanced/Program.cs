@@ -49,19 +49,13 @@ class Program
             {
                 case "+": result = calc.Add(numbers); break;
 
-                case "-":
-                    Console.WriteLine($"");
-                    break;
-                case "/":
-                    Console.WriteLine($"");
-                    break;
-                case "*":
-                    Console.WriteLine($"");
-                    break;
+                case "-": result = calc.Substract(numbers); break;
 
-                default:
-                    Console.WriteLine("Invalid operation");
-                    continue;
+                case "/": result = calc.Divide(numbers); break;
+                
+                case "*": result = calc.Multiply(numbers); break;
+
+                default: Console.WriteLine("Invalid operation"); continue;
             }
         } 
     }
@@ -101,10 +95,16 @@ public class Calculator
 
     public double Multiply(params double[] numbers)
     {
-        double result = 1;
-        foreach (var num in numbers)
+        if (numbers.Length is 0)
         {
-            result = result * num;
+            Console.WriteLine("Error");
+            return double.NaN;
+        }
+
+        double result = numbers[0];
+        for (int i = 1; i < numbers.Length; i++)
+        {
+            result = result / numbers[0];
         }
         return result;
     }

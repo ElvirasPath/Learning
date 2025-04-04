@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.IO.Pipelines;
+using System.Reflection.Metadata.Ecma335;
 using System.Security;
 
 namespace advancedcalculator;
@@ -43,10 +44,10 @@ class Program
                     return;
                 }
             }
-            double result;
+            double result = 0;
             switch (userOper)
             {
-                case "+":result = calc.Add(numbers); break;
+                case "+": result = calc.Add(numbers); break;
 
                 case "-":
                     Console.WriteLine($"");
@@ -70,28 +71,42 @@ public class Calculator
 {
     public double Add(params double[] numbers)
     {
-        double sum = 0;
+        double result = 0;
         foreach (double num in numbers)
         {
-            sum = num + num;
+            result = result + num;
         }
-        return sum;
+        return result;
     }
 
     public double Substract(params double[] numbers)
     {
-
-        
+        double result = numbers[0];
+        for (int i = 1; i < numbers.Length; i++)
+        {
+            result = result - numbers[i];
+        }
+        return result;
     }
 
     public double Divide(params double[] numbers)
     {
-
-
+        double result = 1;
+        foreach (var num in numbers)
+        {
+            result = result / num;
+        }
+        return result;
     }
-    
+
     public double Multiply(params double[] numbers)
     {
-        
+        double result = 1;
+        foreach (var num in numbers)
+        {
+            result = result * num;
+        }
+        return result;
     }
+    
 }

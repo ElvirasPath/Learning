@@ -7,7 +7,7 @@ class Program
         Calculator calc = new Calculator();
         while (true)
         {
-            Console.Write("Choose operation (+, -, /, *) or ener 'exit' to exit the Calculator: ");
+            Console.Write("Choose operation (+, -, /, *) or enter 'exit' to exit the Calculator: ");
             Console.WriteLine();
             string? userOper = Console.ReadLine()?.Trim();
 
@@ -59,7 +59,7 @@ class Program
 
                 case "*": Console.WriteLine($"Result: {calc.Multiply(numbers)}"); break;
 
-                default: Console.WriteLine("Invalid operation"); continue;
+                default: Console.WriteLine("Invalid operation"); break;
             }
         }
     }
@@ -108,7 +108,7 @@ public class Calculator
         double result = numbers[0];
         for (int i = 1; i < numbers.Length; i++)
         {
-            result = result * numbers[i];
+            result = result / numbers[i];
         }
         return result;
     }

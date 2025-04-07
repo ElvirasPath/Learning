@@ -13,7 +13,7 @@ class Program
         {
             Console.Write("Choose operation (+, -, /, *) or ener 'exit' to exit the Calculator: ");
             Console.WriteLine();
-            string? userOper = Console.ReadLine();
+            string? userOper = Console.ReadLine()?.Trim();
 
             if (userOper?.ToLower() == "exit")
             {
@@ -21,39 +21,48 @@ class Program
                 break;
             }
 
-            Console.Write("Enter numbers separated by a comma: ");
+            Console.Write("Enter numbers separated by commas: ");
             string? userInput = Console.ReadLine();
             if (string.IsNullOrWhiteSpace(userInput))
             {
                 Console.WriteLine("Invalid input. Name cannot be empty or spaces.");
                 return;
             }
-            string?[] inputNums = userInput.Split(",");
+            string?[] inputStrings = userInput.Split(",");
+            double[] numbers = new double[inputStrings.Length];
+            bool validInput = true; 
             Console.WriteLine();
 
-            List<double> numbers = new List<double>();
-            foreach (var num in inputNums)
+            // List<double> numbers = new List<double>();
+            for (int i = 0; i < inputStrings.Length; i++)
             {
-                if (double.TryParse(num?.Trim(), out double number))
+                if (double.TryParse(inputStrings[i]?.Trim(), out double number))
                 {
-                    numbers.Add(number);
+                    numbers[i] = number;
                 }
                 else
                 {
-                    Console.WriteLine("Invalid input, please, try again.");
+                    Console.WriteLine($"Invalid input {inputStrings[i]}, please, try again.");
+                    validInput = false;
                     return;
                 }
             }
-            double result = 0;
+
+            if (!validInput)
+            {
+                Console.WriteLine("Please enter a list of numbers.");
+                continue;
+            }
+
             switch (userOper)
             {
-                case "+": result = calc.Add(numbers); break;
+                case "+":  calc.Add(numbers); break;
 
-                case "-": result = calc.Substract(numbers); break;
+                case "-":  calc.Substract(numbers); break;
 
-                case "/": result = calc.Divide(numbers); break;
+                case "/":  calc.Divide(numbers); break;
                 
-                case "*": result = calc.Multiply(numbers); break;
+                case "*":  calc.Multiply(numbers); break;
 
                 default: Console.WriteLine("Invalid operation"); continue;
             }

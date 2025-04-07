@@ -1,15 +1,11 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.IO.Pipelines;
-using System.Reflection.Metadata.Ecma335;
-using System.Security;
-
+﻿using System;
 namespace advancedcalculator;
 class Program
 {
     static void Main(string[] args)
     {
         Calculator calc = new Calculator();
-        while(true)
+        while (true)
         {
             Console.Write("Choose operation (+, -, /, *) or ener 'exit' to exit the Calculator: ");
             Console.WriteLine();
@@ -30,7 +26,7 @@ class Program
             }
             string?[] inputStrings = userInput.Split(",");
             double[] numbers = new double[inputStrings.Length];
-            bool validInput = true; 
+            bool validInput = true;
             Console.WriteLine();
 
             // List<double> numbers = new List<double>();
@@ -55,17 +51,17 @@ class Program
             }
             switch (userOper)
             {
-                case "+":   Console.WriteLine($"Result: {calc.Add(numbers)}"); break;
+                case "+": Console.WriteLine($"Result: {calc.Add(numbers)}"); break;
 
-                case "-":  Console.WriteLine($"Result: {calc.Substract(numbers)}"); break;
+                case "-": Console.WriteLine($"Result: {calc.Substract(numbers)}"); break;
 
-                case "/":  Console.WriteLine($"Result: {calc.Divide(numbers)}"); break;
-                
-                case "*":  Console.WriteLine($"Result: {calc.Multiply(numbers)}"); break;
+                case "/": Console.WriteLine($"Result: {calc.Divide(numbers)}"); break;
+
+                case "*": Console.WriteLine($"Result: {calc.Multiply(numbers)}"); break;
 
                 default: Console.WriteLine("Invalid operation"); continue;
             }
-        } 
+        }
     }
 }
 
@@ -116,5 +112,5 @@ public class Calculator
         }
         return result;
     }
-    
+
 }

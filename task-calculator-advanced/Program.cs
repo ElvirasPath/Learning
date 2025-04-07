@@ -53,16 +53,15 @@ class Program
                 Console.WriteLine("Please enter a list of numbers.");
                 continue;
             }
-
             switch (userOper)
             {
-                case "+":  calc.Add(numbers); break;
+                case "+":   Console.WriteLine($"Result: {calc.Add(numbers)}"); break;
 
-                case "-":  calc.Substract(numbers); break;
+                case "-":  Console.WriteLine($"Result: {calc.Substract(numbers)}"); break;
 
-                case "/":  calc.Divide(numbers); break;
+                case "/":  Console.WriteLine($"Result: {calc.Divide(numbers)}"); break;
                 
-                case "*":  calc.Multiply(numbers); break;
+                case "*":  Console.WriteLine($"Result: {calc.Multiply(numbers)}"); break;
 
                 default: Console.WriteLine("Invalid operation"); continue;
             }
@@ -113,7 +112,7 @@ public class Calculator
         double result = numbers[0];
         for (int i = 1; i < numbers.Length; i++)
         {
-            result = result / numbers[0];
+            result = result * numbers[0];
         }
         return result;
     }

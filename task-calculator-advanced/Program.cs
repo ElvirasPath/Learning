@@ -22,7 +22,7 @@ class Program
             if (string.IsNullOrWhiteSpace(userInput))
             {
                 Console.WriteLine("Invalid input, it cannot be empty or spaces.");
-                return;
+                continue;
             }
             string?[] inputStrings = userInput.Split(",");
             double[] numbers = new double[inputStrings.Length];

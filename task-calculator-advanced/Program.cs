@@ -25,7 +25,7 @@ class Program
             string? userInput = Console.ReadLine();
             if (string.IsNullOrWhiteSpace(userInput))
             {
-                Console.WriteLine("Invalid input. Name cannot be empty or spaces.");
+                Console.WriteLine("Invalid input, it cannot be empty or spaces.");
                 return;
             }
             string?[] inputStrings = userInput.Split(",");
@@ -44,7 +44,7 @@ class Program
                 {
                     Console.WriteLine($"Invalid input {inputStrings[i]}, please, try again.");
                     validInput = false;
-                    return;
+                    continue;
                 }
             }
 
@@ -91,28 +91,28 @@ public class Calculator
         return result;
     }
 
-    public double Divide(params double[] numbers)
+    public double Multiply(params double[] numbers)
     {
         double result = 1;
         foreach (var num in numbers)
         {
-            result = result / num;
+            result = result * num;
         }
         return result;
     }
 
-    public double Multiply(params double[] numbers)
+    public double Divide(params double[] numbers)
     {
         if (numbers.Length is 0)
         {
-            Console.WriteLine("Error");
+            Console.WriteLine("Error, it is impossible to divide by 0");
             return double.NaN;
         }
 
         double result = numbers[0];
         for (int i = 1; i < numbers.Length; i++)
         {
-            result = result * numbers[0];
+            result = result * numbers[i];
         }
         return result;
     }

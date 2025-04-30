@@ -1,7 +1,6 @@
 ﻿using Microsoft.Maui.Controls;
 using System.Collections.Generic;
 using System;
-using System.Linq;
 
 namespace MyMauiApp;
 

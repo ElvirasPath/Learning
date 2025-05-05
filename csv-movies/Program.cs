@@ -1,2 +1,16 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿namespace MovieDataset;
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        var controller = new MovieController();
+        controller.DisplayMovies();
+        
+        Console.WriteLine("Enter director's name:");
+        var directorName = Console.ReadLine();
+        controller.DisplayMoviesByDirector(directorName);
+    }
+}

@@ -22,6 +22,8 @@ class Program
             //Loop through each line og the CSV file
             foreach (var line in lines)
             {
+                Console.WriteLine($"Line read: {line}"); // DEBUGGING LINE
+                
                 //Split tbe line by comma (CSV format)
                 var parts = line.Split(",");
                 

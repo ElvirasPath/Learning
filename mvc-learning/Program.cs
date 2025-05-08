@@ -4,19 +4,17 @@ using ImageInfoMVCApp.Models;
 using ImageInfoMVCApp.Views;
 
 namespace mvc_learning
-{
+
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
-            var analyser = new ImageAnalyser();
-            var view = new View();
-            var controller = new ImageController(analyser, view);
+            ImageController controller = new ImageController();
+            Console.WriteLine("Image file path:");
 
-            Console.Write("Enter image file path: ");
-            var path = Console.ReadLine();
+            string? path = Console.ReadLine();
 
-            controller.AnalyseAndShow(path ?? "");
+            controller.AnalyseAndDisplayImageInformation(path);
+
         }
     }
-}

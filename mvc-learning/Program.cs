@@ -12,5 +12,6 @@ class Program
         var path = Console.ReadLine();
 
         controller.AnalyseAndDisplayImageInformation(path);
+
     }
 }

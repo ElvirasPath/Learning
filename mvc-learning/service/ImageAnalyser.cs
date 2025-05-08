@@ -3,77 +3,66 @@ namespace mvc_learning;
 using MetadataExtractor;
 using MetadataExtractor.Formats.Exif;
 using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.Processing;
-using SixLabors.ImageSharp.Metadata.Profiles.Exif;
 using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp.Metadata.Profiles.Exif;
 using System.Globalization;
-
 
 public class ImageAnalyser
 {
     public ImageMetadata Analyse(string filePath)
     {
+        // Get basic file info
         var fileInfo = new FileInfo(filePath);
+
+        // Load the image using ImageSharp with pixel format Rgba32
         using var image = Image.Load<Rgba32>(filePath);
 
+        // Create a metadata object and fill in basic info
         var metaData = new ImageMetadata
         {
             FileName = fileInfo.Name,
             FileSizeInBytes = fileInfo.Length,
             Width = image.Width,
             Height = image.Height,
-            Format = image.Metadata.DecodedImageFormat?.Name ?? "Unknown",
+            Format = image.Metadata.DecodedImageFormat?.Name ?? "Unknown"
         };
-        // Get EXIF data from the image
+
+        // Extract EXIF metadata
         var exifProfileValues = image.Metadata.ExifProfile;
 
         if (exifProfileValues != null)
         {
-            // Extract EXIF data from the image metadata with TryGetValue method 
+            // Get camera make and model
             metaData.CameraMake = exifProfileValues.TryGetValue(ExifTag.Make, out var make) ? make.ToString() : null;
             metaData.CameraModel = exifProfileValues.TryGetValue(ExifTag.Model, out var model) ? model.ToString() : null;
 
-            // Extract date taken from the EXIF data
-            // We need to parse it to a DateTime object, but TryParse does not work with this format
-            // So we use TryParseExact instead
-            // The date is stored in the format "yyyy:MM:dd HH:mm:ss"
-            string? dateTime = exifProfileValues.TryGetValue(ExifTag.DateTime, out var dateTaken) ? dateTaken.ToString() : null;
-            if (dateTime != null)
+            // Try to get and parse date taken
+            if (exifProfileValues.TryGetValue(ExifTag.DateTime, out var dateTaken))
             {
-                if (DateTime.TryParseExact(dateTime, "yyyy:MM:dd HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsedDate))
+                string? dateTimeString = dateTaken.ToString();
+                if (DateTime.TryParseExact(dateTimeString, "yyyy:MM:dd HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsedDate))
                 {
                     metaData.DateTaken = parsedDate;
                 }
                 else
                 {
-                    Console.WriteLine($"Failed to parse date: {dateTime}");
+                    Console.WriteLine($"⚠️ Failed to parse date: {dateTimeString}");
                 }
             }
 
+            // Try to get GPS coordinates
+            var hasLongitude = exifProfileValues.TryGetValue(ExifTag.GPSLongitude, out var longitude);
+            var hasLatitude = exifProfileValues.TryGetValue(ExifTag.GPSLatitude, out var latitude);
 
-            // Extract GPS data from the EXIF data
-            // GPS data is stored in the format "degrees, minutes, seconds" in Rational[] format and have 3 values
-            // We need to parse it to a string with the format "degrees° minutes' seconds""            
-            var gpsLongitude = exifProfileValues.TryGetValue(ExifTag.GPSLongitude, out var longitude) ? longitude : null;
-            var gpsLatitude = exifProfileValues.TryGetValue(ExifTag.GPSLatitude, out var latitude) ? latitude : null;
-
-            // foreach does not work with the Rational[] type, so we need to use a for loop instead
-            for (int i = 0; i < 2; i++)
+            if (hasLongitude && hasLatitude && longitude?.Value?.Length == 3 && latitude?.Value?.Length == 3)
             {
-                if (gpsLongitude?.Value != null && gpsLatitude?.Value != null && gpsLongitude.Value.Length == 3 && gpsLatitude.Value.Length == 3)
-                {
-                    // here we using SixLabors.ImageSharp.Rational[]? instead of var to show the type of the variable
-                    SixLabors.ImageSharp.Rational[]? longitudeValue = gpsLongitude.Value;
-                    // this is the same as above
-                    var latitudeValue = gpsLatitude.Value;
-                    // Formating the values to a string with the format "degrees° minutes' seconds""
-                    metaData.GPSLongitude = $"{longitudeValue[0]}° {longitudeValue[1]}\' {longitudeValue[2]}\"";
-                    metaData.GPSLatitude = $"{latitudeValue[0]}° {latitudeValue[1]}\' {latitudeValue[2]}\"";
-                }
+                var lon = longitude.Value!;
+                var lat = latitude.Value!;
+                metaData.GPSLongitude = $"{lon[0]}° {lon[1]}' {lon[2]}\"";
+                metaData.GPSLatitude = $"{lat[0]}° {lat[1]}' {lat[2]}\"";
             }
-
         }
-        ;
+
         return metaData;
     }
 }

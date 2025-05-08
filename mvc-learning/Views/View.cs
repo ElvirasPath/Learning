@@ -1,4 +1,4 @@
-namespace mvc_learning.Views;
+namespace mvc_learning;
 
 using System;
 

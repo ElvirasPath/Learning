@@ -1,6 +1,4 @@
-using MetadataExtractor; // (❗Not used here anymore — can be removed)
-using MetadataExtractor.Formats.Exif; // (❗Also unused in this version)
-
+namespace mvc_learning;
 using SixLabors.ImageSharp; // Main library to load and work with images
 using SixLabors.ImageSharp.Processing; // Needed for advanced image editing (not directly used here)
 using SixLabors.ImageSharp.Metadata.Profiles.Exif; // To access EXIF metadata like camera info, date taken

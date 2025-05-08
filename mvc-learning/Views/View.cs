@@ -1,3 +1,5 @@
+namespace mvc_learning.Views;
+
 using System;
 
 public class View

@@ -1,9 +1,4 @@
-using System;
-using System.IO;
-using ImageInfoMVCApp.Models;
-using ImageInfoMVCApp.Views;
-
-namespace mvc_learning.Controllers;
+namespace mvc_learning;
 
 using System;
 using System.IO;

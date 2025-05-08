@@ -1,5 +1,3 @@
-
-
 namespace mvc_learning;
 
 using System;

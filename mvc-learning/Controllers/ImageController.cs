@@ -4,7 +4,10 @@ using ImageInfoMVCApp.Models;
 using ImageInfoMVCApp.Views;
 
 namespace mvc_learning.Controllers
-{
+
+    using System;
+    using System.IO;
+
     public class ImageController
     {
         private readonly ImageAnalyser imageAnalyser = new ImageAnalyser();
@@ -12,13 +15,13 @@ namespace mvc_learning.Controllers
 
         public void AnalyseAndDisplayImageInformation(string? filePath)
         {
-            if (!File.Exists(filePath))
+            if (string.IsNullOrWhiteSpace(filePath) || !File.Exists(filePath))
             {
-                Console.WriteLine($"The file: {filePath} does not exist!");
+                Console.WriteLine("❌ The file path is invalid or the file does not exist.");
                 return;
             }
 
             var metaData = imageAnalyser.Analyse(filePath);
             view.ShowImageInfo(metaData);
-
-}
+        }
+    }

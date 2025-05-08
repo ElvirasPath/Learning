@@ -3,18 +3,19 @@ using ImageInfoMVCApp.Controllers;
 using ImageInfoMVCApp.Models;
 using ImageInfoMVCApp.Views;
 
-namespace mvc_learning
+namespace mvc_learning;
 
-    class Program
+using System;
+
+class Program
+{
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            ImageController controller = new ImageController();
-            Console.WriteLine("Image file path:");
+        var controller = new ImageController();
 
-            string? path = Console.ReadLine();
+        Console.WriteLine("📸 Enter the full image file path:");
+        var path = Console.ReadLine();
 
-            controller.AnalyseAndDisplayImageInformation(path);
-
-        }
+        controller.AnalyseAndDisplayImageInformation(path);
     }
+}

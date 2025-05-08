@@ -46,7 +46,7 @@ public class ImageAnalyser
                 }
                 else
                 {
-                    Console.WriteLine($"⚠️ Could not parse date: {dateString}");
+                    metaData.DateTaken = DateTime.MinValue;
                 }
             }
 

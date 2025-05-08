@@ -1,20 +1,18 @@
 using System;
 
-namespace ImageInfoMVCApp.Views
-
-    public class View
+public class View
 {
-    public void ShowImageInfo(ImageMetaData data)
+    public void ShowImageInfo(ImageMetadata metadata)
     {
-        public string FileName { get; set; }
-    public long FileSizeInBytes { get; set; }
-    public int Width { get; set; }
-    public int Height { get; set; }
-    public string Format { get; set; }
-    public string? CameraMake { get; set; }
-    public string? CameraModel { get; set; }
-    public DateTime? DateTaken { get; set; }
-    public string? GPSLongitude { get; set; }
-    public string? GPSLatitude { get; set; }
-}
+        Console.WriteLine("\n🔍 Image Metadata:");
+        Console.WriteLine($"📄 File Name:        {metadata.FileName}");
+        Console.WriteLine($"📦 File Size:        {metadata.FileSizeInBytes} bytes");
+        Console.WriteLine($"📐 Dimensions:       {metadata.Width} x {metadata.Height}");
+        Console.WriteLine($"🖼️ Format:           {metadata.Format}");
+        Console.WriteLine($"📷 Camera Make:      {metadata.CameraMake ?? "N/A"}");
+        Console.WriteLine($"📷 Camera Model:     {metadata.CameraModel ?? "N/A"}");
+        Console.WriteLine($"🕒 Date Taken:       {metadata.DateTaken?.ToString("yyyy-MM-dd HH:mm:ss") ?? "N/A"}");
+        Console.WriteLine($"🌍 GPS Longitude:    {metadata.GPSLongitude ?? "N/A"}");
+        Console.WriteLine($"🌍 GPS Latitude:     {metadata.GPSLatitude ?? "N/A"}");
+    }
 }
